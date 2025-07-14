@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        function handleCredentialResponse(response) {
+            console.log("ID Token:", response.credential); // ← copy this
+        }
+
+        window.onload = function () {
+            google.accounts.id.initialize({
+                client_id: "307493733938-7am2vb0qhrdborkpmoha74ec6407ga7j.apps.googleusercontent.com",
+                callback: handleCredentialResponse
+            });
+
+            google.accounts.id.renderButton(
+                document.getElementById("googleBtn"),
+                { theme: "outline", size: "large" }
+            );
+        };
+    </script>
+</head>
+
+<body>
+    <div id="googleBtn"></div>
+</body>
+
+</html>
