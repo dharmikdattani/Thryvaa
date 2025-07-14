@@ -3,6 +3,7 @@ import mysql from "mysql2";
 import { app } from "./config/express";
 import { logger } from "./config/logger";
 import { sequelize } from './config/database';
+import { AggregateError } from 'sequelize';
 
 
 const PORT: number = (process.env.PORT && +process.env.PORT) || 8000;
