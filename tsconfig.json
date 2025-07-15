@@ -3,22 +3,27 @@
         "module": "commonjs",
         "esModuleInterop": true,
         "target": "es6",
+        "lib": [
+            "es2018"
+        ],
         "strict": true,
         "moduleResolution": "node",
         "sourceMap": true,
         "outDir": "dist",
+        "rootDir": "src",
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
         "typeRoots": [
             "./node_modules/@types"
         ]
     },
-    "lib": [
-        "es2018"
-    ],
     "compileOnSave": true,
     "include": [
         "src/**/*.ts"
     ],
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "dist"
     ]
 }
