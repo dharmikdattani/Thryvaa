@@ -35,14 +35,14 @@ async function verifyHash(plainTextPassword: string, hashedPassword: string): Pr
 // Generate a JWT token
 function generateToken(payload: Payload, type: 'Access' | 'Refresh' = 'Access', expiresIn: string = expiresTime): TokenResponse {
   const options: SignOptions = {
-    expiresIn
+  expiresIn: expiresTime as any  // workaround
   };
 
   let token: string;
   if (type === "Access") {
     token = jwt.sign(payload, jwtSecret, options);
   } else {
-    options.expiresIn = refreshExpiresTime;    
+    options.expiresIn = refreshExpiresTime as any;    
     token = jwt.sign(payload, refreshSecret, options);
   }
   return { token, expiresIn: options.expiresIn as string };
